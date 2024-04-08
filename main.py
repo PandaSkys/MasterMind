@@ -20,7 +20,7 @@ def main():
     # Génération du code à trouver
     good_code = mm.generate_random_numbers()
     # Affichage du vrai code
-    print(good_code)
+    # print(good_code)
     for i in range(10):
         mm.bar()
         # Affichage du nombre d'essais restants
