@@ -1,12 +1,10 @@
 import MasterMind as mm
-from colorama import init, Fore
 
-# Init colorama pour Windows
-init()
+
 color_matching = {
-    "RED": Fore.RED,
-    "GREEN": Fore.GREEN,
-    "YELLOW": Fore.YELLOW
+    "RED": mm.colors.RED,
+    "GREEN": mm.colors.GREEN,
+    "YELLOW": mm.colors.YELLOW
 }
 
 
@@ -30,18 +28,18 @@ def main():
         # Vérification du code
         if answer_code == good_code:
             print("Bravo, vous avez trouvé le code")
-            mm.end_games()
+            mm.end_game()
             break
         else:
             result = mm.check_code(answer_code, good_code)
-            print("                                       " + color_matching.get(result[0]) + "●" + Fore.RESET + color_matching.get(result[1]) + "●" + Fore.RESET + color_matching.get(result[2]) + "●" + Fore.RESET + color_matching.get(result[3]) + "●" + Fore.RESET)
+            print("                                       " + color_matching.get(result[0]) + "●" + mm.colors.END + color_matching.get(result[1]) + "●" + mm.colors.END + color_matching.get(result[2]) + "●" + mm.colors.END + color_matching.get(result[3]) + "●" + mm.colors.END)
 
         # Si le joueur n'a plus d'essais
         if i == 9:
             mm.bar()
             print("Vous n'avez plus d'essais")
             print(f"Le code était {good_code}")
-            mm.end_games()
+            mm.end_game()
             break
 
 

@@ -12,18 +12,18 @@ def check_code(answer_code, good_code):
     # Décomposition du code 
     code = list(answer_code)
     code_to_find = list(good_code)
-    result = ["NULL", "NULL", "NULL", "NULL"]
+    result = []
     # Verification si les chiffres sont dans le code
     for i in range(4):
         if code[i] == code_to_find[i]:
-            result[i] = "GREEN"
+            result.append("GREEN")
         if code[i] in code_to_find and code[i] != code_to_find[i]:
             if code.count(code[i]) > code_to_find.count(code[i]):
-                result[i] = "RED"
+                result.append("RED")
             else:
-                result[i] = "YELLOW"
+                result.append("YELLOW")
             
         if code[i] not in code_to_find: 
-            result[i] = "RED"
+            result.append("RED")
         
     return result
